@@ -21,6 +21,11 @@ wget -O ~/.weechat/python/format_bridge_bot_output.py \
 cd ~/.weechat/python/autoload && ln -s ../format_bridge_bot_output.py
 ```
 
+Load the script in weechat:
+```
+/script load format_bridge_bot_output.py
+```
+
 In weechat, setup the script for your desired channel:
 ```
 /format_bridge_bot_output_add-server-channel-botnicks-nicklength <group_name> <server_name> <channel_name> <bot_name> <max_nick_length>
