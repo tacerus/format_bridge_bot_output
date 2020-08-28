@@ -3,6 +3,7 @@
 # Copyright (C) 2018 - 2019
 # Adam Russell <adam[at]thecliguy[dot]co[dot]uk> 
 # https://www.thecliguy.co.uk
+# Guillaume Bury <guillaume[dot]bury[at]gmail[dot]com>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
