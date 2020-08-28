@@ -117,6 +117,9 @@
 ################################################################################
 # Change Log:
 #
+# dev - Guillaume Bury
+#   * Remove the "network" part
+#
 # 0.5.1 - 2019-12-01 - Adam Russell
 #   * Replaced all usage of '<>' as a not equal operator with '!=' because the
 #     former isn't supported in Python 3 whereas the latter is supported in both
@@ -438,7 +441,7 @@ def msg_cb(data, modifier, modifier_data, string):
     if not m:
         return string
     
-    action, network, nick, text = m.group('action'), m.group('network'), m.group('nick'), m.group('text')
+    action, nick, text = m.group('action'), m.group('nick'), m.group('text')
     
     # In Python 2 a string is stored as bytes which for all intents and purposes 
     # is limited to ASCII characters, whereas in Python 3 a string is stored as 
@@ -510,7 +513,7 @@ def msg_cb(data, modifier, modifier_data, string):
         if type(nickformatted) is unicode:
             nickformatted = nickformatted.encode('utf-8')
     
-    text = action + "[" + network + "] " + text
+    text = action + text
     parsed['text'] = text
     parsed['host'] = parsed['host'].replace(bot, nickformatted)
         
