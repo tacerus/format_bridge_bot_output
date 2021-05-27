@@ -35,7 +35,7 @@ Note that `<group_name>` is an arbitrary name you can choose to refer to the con
 
 For instance, on my setup, the command looked like:
 ```
-/format_bridge_bot_output_add-server-channel-botnicks-nicklength ocamldiscord freenode #ocaml d_bot 15
+/format_bridge_bot_output_add-server-channel-botnicks-nicklength ocamldiscord libera #ocaml d_bot 15
 ```
 
 Finally, setup the regexp for the bot:
