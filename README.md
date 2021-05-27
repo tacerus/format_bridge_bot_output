@@ -29,18 +29,15 @@ Load the script in weechat:
 In weechat, setup the script for your desired channel:
 ```
 /format_bridge_bot_output_add-server-channel-botnicks-nicklength <group_name> <server_name> <channel_name> <bot_name> <max_nick_length>
+/format_bridge_bot_output_add-regex <group_name> <regexp>
 ```
 
 Note that `<group_name>` is an arbitrary name you can choose to refer to the configuration of the script for the particular combination of server, channel, and bot name.
 
-For instance, on my setup, the command looked like:
+For instance, on my setup, the commands looked like:
 ```
 /format_bridge_bot_output_add-server-channel-botnicks-nicklength ocamldiscord libera #ocaml d_bot 15
-```
-
-Finally, setup the regexp for the bot:
-```
-/format_bridge_bot_output_add-regex <group_name> (?P<action>(?:^[\x01]ACTION |^))<(?P<nick>.+?)> (?P<text>.*)
+/format_bridge_bot_output_add-regex ocamldiscord (?P<action>(?:^[\x01]ACTION |^))<(?P<nick>.+?)> (?P<text>.*)
 ```
 
 ## Note
