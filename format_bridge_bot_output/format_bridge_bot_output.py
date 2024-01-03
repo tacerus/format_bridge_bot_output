@@ -503,6 +503,10 @@ def msg_cb(data, modifier, modifier_data, string):
             nickformatted = nick[0:intNickMaxLength] + ellipsis
         else:
             nickformatted = nick
+
+    # Georg 03/01/2024: add identifier
+    if 'matrix' in bot:
+        nickformatted = nickformatted + '/m'
     
     # A nick cannot contain a space. If it does then Weechat appears to 
     # treat what follows the space as a "command", this appears in the 
