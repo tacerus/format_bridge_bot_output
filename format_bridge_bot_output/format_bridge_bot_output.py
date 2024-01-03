@@ -193,6 +193,8 @@ import weechat as w
 import re
 import sys
 
+import fnmatch
+
 SCRIPT_NAME = "format_bridge_bot_output"
 SCRIPT_AUTHOR = "Adam Russell (https://www.thecliguy.co.uk)"
 SCRIPT_DESC = "Formats messages received from a bridge bot to appear as though they came from an IRC user."
@@ -414,7 +416,8 @@ def msg_cb(data, modifier, modifier_data, string):
     # 07/11/18: Whitespace at the beginning and end of a nick within 
     # bot_nicks is stripped, used this as a reference: 
     # https://python-forum.io/Thread-Best-way-to-strip-after-split
-    result = [item for item in settings_lst if item.server.strip() == modifier_data and item.channel.strip() == parsed['channel'] and parsed['nick'] in [s.strip() for s in item.bot_nicks.split(',')]]
+    # Georg 03/01/24: support multiple comma separated channels in configuration and wildcards
+    result = [item for item in settings_lst if item.server.strip() == modifier_data and any([fnmatch.fnmatch(parsed['channel'], channel) for channel in item.channel.split(',')]) and parsed['nick'] in [s.strip() for s in item.bot_nicks.split(',')]]
     
     resultcount = len(result)
     if resultcount == 0:
